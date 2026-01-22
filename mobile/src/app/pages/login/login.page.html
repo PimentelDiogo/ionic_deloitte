@@ -19,7 +19,8 @@
 
           <ion-item>
             <ion-label position="floating">Senha</ion-label>
-            <ion-input formControlName="password" type="password" placeholder=""></ion-input>
+            <ion-input formControlName="password" [type]="passwordType" placeholder=""></ion-input>
+            <ion-icon [name]="passwordIcon" slot="end" (click)="togglePasswordMode()" class="password-icon"></ion-icon>
           </ion-item>
 
           <div class="error-message" *ngIf="errorMessage">

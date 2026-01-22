@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import {
     IonContent, IonHeader, IonTitle, IonToolbar, IonButton, IonIcon,
     IonItem, IonLabel, IonSelect, IonSelectOption, IonTextarea,
-    IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonButtons
+    IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonButtons, IonBackButton
 } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
 import { arrowBackOutline, saveOutline } from 'ionicons/icons';
@@ -21,7 +21,7 @@ import { Equipamento } from '../../../models/equipamento.model';
     imports: [
         IonContent, IonHeader, IonTitle, IonToolbar, IonButton, IonIcon,
         IonItem, IonLabel, IonSelect, IonSelectOption, IonTextarea,
-        IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonButtons,
+        IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonButtons, IonBackButton,
         CommonModule, ReactiveFormsModule
     ]
 })

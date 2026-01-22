@@ -20,5 +20,21 @@ public static class SeedData
             });
             context.SaveChanges();
         }
+
+        // Verificar se já existem equipamentos
+        if (!context.Equipamentos.Any())
+        {
+            var equipamentos = new List<Equipamento>
+            {
+                new Equipamento { Nome = "TV", Descricao = "Televisão" },
+                new Equipamento { Nome = "Chuveiro", Descricao = "Chuveiro elétrico" },
+                new Equipamento { Nome = "Porta", Descricao = "Porta" },
+                new Equipamento { Nome = "Guarda-roupa", Descricao = "Guarda-roupa" },
+                new Equipamento { Nome = "Ar Condicionado", Descricao = "Ar condicionado" }
+            };
+            
+            context.Equipamentos.AddRange(equipamentos);
+            context.SaveChanges();
+        }
     }
 }

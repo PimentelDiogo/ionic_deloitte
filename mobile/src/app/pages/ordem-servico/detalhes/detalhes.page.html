@@ -1,0 +1,75 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-button slot="start" fill="clear" (click)="voltar()">
+      <ion-icon name="arrow-back-outline"></ion-icon>
+    </ion-button>
+    <ion-title>Detalhes da OS</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="detalhes-container" *ngIf="ordemServico">
+    <ion-card>
+      <ion-card-header>
+        <div class="header-content">
+          <ion-card-title>OS #{{ ordemServico.id }}</ion-card-title>
+          <ion-badge [color]="getStatusColor(ordemServico.status)">
+            {{ getStatusText(ordemServico.status) }}
+          </ion-badge>
+        </div>
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col size="12" size-md="6">
+              <ion-item lines="none">
+                <ion-label>
+                  <h3>Equipamento</h3>
+                  <p>{{ ordemServico.equipamento?.nome || 'Não informado' }}</p>
+                </ion-label>
+              </ion-item>
+            </ion-col>
+
+            <ion-col size="12" size-md="6">
+              <ion-item lines="none">
+                <ion-label>
+                  <h3>Data de Abertura</h3>
+                  <p>{{ ordemServico.dataAbertura | date:'dd/MM/yyyy HH:mm' }}</p>
+                </ion-label>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+
+          <ion-row *ngIf="ordemServico.dataFinalizacao">
+            <ion-col size="12" size-md="6">
+              <ion-item lines="none">
+                <ion-label>
+                  <h3>Data de Finalização</h3>
+                  <p>{{ ordemServico.dataFinalizacao | date:'dd/MM/yyyy HH:mm' }}</p>
+                </ion-label>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col size="12">
+              <ion-item lines="none">
+                <ion-label>
+                  <h3>Descrição</h3>
+                  <p class="description-text">{{ ordemServico.descricao }}</p>
+                </ion-label>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-button *ngIf="ordemServico.status === 0" expand="block" color="success" (click)="finalizar()"
+      [disabled]="isLoading">
+      <ion-icon name="checkmark-circle-outline" slot="start"></ion-icon>
+      {{ isLoading ? 'Finalizando...' : 'Finalizar Ordem de Serviço' }}
+    </ion-button>
+  </div>
+</ion-content>

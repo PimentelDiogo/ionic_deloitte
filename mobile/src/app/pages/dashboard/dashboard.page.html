@@ -1,0 +1,69 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>Dashboard</ion-title>
+    <ion-button slot="end" fill="clear" (click)="logout()">
+      <ion-icon name="log-out-outline"></ion-icon>
+      Sair
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="dashboard-container">
+    <h2>Bem-vindo ao Sistema</h2>
+
+    <!-- Resumo de Ordens de Serviço -->
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12" size-md="6">
+          <ion-card class="summary-card">
+            <ion-card-header>
+              <ion-card-title>OS Abertas</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <div class="summary-number">{{ osAbertas }}</div>
+              <p>Ordens de serviço em andamento</p>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+
+        <ion-col size="12" size-md="6">
+          <ion-card class="summary-card">
+            <ion-card-header>
+              <ion-card-title>OS Finalizadas</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <div class="summary-number">{{ osFinalizadas }}</div>
+              <p>Ordens de serviço concluídas</p>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <!-- Navegação -->
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12" size-md="6">
+          <ion-card class="nav-card" (click)="navigateToOS()">
+            <ion-card-content>
+              <ion-icon name="list-outline" class="nav-icon"></ion-icon>
+              <h3>Ordens de Serviço</h3>
+              <p>Gerenciar ordens de serviço</p>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+
+        <ion-col size="12" size-md="6">
+          <ion-card class="nav-card" (click)="navigateToEquipamentos()">
+            <ion-card-content>
+              <ion-icon name="construct-outline" class="nav-icon"></ion-icon>
+              <h3>Equipamentos</h3>
+              <p>Visualizar equipamentos</p>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

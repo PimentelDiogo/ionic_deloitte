@@ -1,0 +1,60 @@
+.detalhes-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+ion-item {
+    --padding-start: 0;
+    --inner-padding-end: 0;
+    margin-bottom: 16px;
+
+    h3 {
+        font-weight: 600;
+        color: var(--ion-color-primary);
+        margin-bottom: 8px;
+        font-size: 14px;
+        text-transform: uppercase;
+    }
+
+    p {
+        font-size: 16px;
+        color: var(--ion-color-dark);
+        margin: 0;
+    }
+
+    .description-text {
+        white-space: pre-wrap;
+        line-height: 1.6;
+    }
+}
+
+ion-button {
+    margin-top: 24px;
+}
+
+// Responsividade
+@media (max-width: 768px) {
+    .header-content {
+        ion-card-title {
+            font-size: 20px;
+        }
+    }
+
+    ion-item {
+        h3 {
+            font-size: 12px;
+        }
+
+        p {
+            font-size: 14px;
+        }
+    }
+}

@@ -1,0 +1,53 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-button slot="start" fill="clear" (click)="voltar()">
+      <ion-icon name="arrow-back-outline"></ion-icon>
+    </ion-button>
+    <ion-title>Ordens de Serviço</ion-title>
+  </ion-toolbar>
+
+  <ion-toolbar>
+    <ion-searchbar placeholder="Buscar por descrição ou equipamento" (ionInput)="onSearchChange($event)"
+      [debounce]="300">
+    </ion-searchbar>
+  </ion-toolbar>
+
+  <ion-toolbar>
+    <ion-segment value="todas" (ionChange)="onSegmentChange($event)">
+      <ion-segment-button value="todas">
+        <ion-label>Todas</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="abertas">
+        <ion-label>Abertas</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="finalizadas">
+        <ion-label>Finalizadas</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <ion-list *ngIf="ordensServicoFiltradas.length > 0">
+    <ion-item *ngFor="let os of ordensServicoFiltradas" (click)="verDetalhes(os.id)" button detail>
+      <ion-label>
+        <h2>{{ os.equipamento?.nome || 'Equipamento não informado' }}</h2>
+        <p>{{ os.descricao }}</p>
+        <p class="date-text">Aberta em: {{ os.dataAbertura | date:'dd/MM/yyyy HH:mm' }}</p>
+      </ion-label>
+      <ion-badge slot="end" [color]="getStatusColor(os.status)">
+        {{ getStatusText(os.status) }}
+      </ion-badge>
+    </ion-item>
+  </ion-list>
+
+  <div class="empty-state" *ngIf="ordensServicoFiltradas.length === 0">
+    <ion-icon name="list-outline"></ion-icon>
+    <h3>Nenhuma ordem de serviço encontrada</h3>
+    <p>Tente ajustar os filtros ou criar uma nova OS</p>
+  </div>
+</ion-content>

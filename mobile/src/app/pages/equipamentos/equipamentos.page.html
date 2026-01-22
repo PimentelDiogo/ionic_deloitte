@@ -1,0 +1,34 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-button slot="start" fill="clear" (click)="voltar()">
+      <ion-icon name="arrow-back-outline"></ion-icon>
+    </ion-button>
+    <ion-title>Equipamentos</ion-title>
+  </ion-toolbar>
+
+  <ion-toolbar>
+    <ion-searchbar placeholder="Buscar equipamento" (ionInput)="onSearchChange($event)" [debounce]="300">
+    </ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngIf="equipamentosFiltrados.length > 0">
+    <ion-item *ngFor="let equipamento of equipamentosFiltrados">
+      <ion-label>
+        <h2>{{ equipamento.nome }}</h2>
+        <p>{{ equipamento.descricao }}</p>
+        <p class="date-text">Cadastrado em: {{ equipamento.dataCadastro | date:'dd/MM/yyyy' }}</p>
+      </ion-label>
+      <ion-badge slot="end" [color]="getStatusColor(equipamento.ativo)">
+        {{ getStatusText(equipamento.ativo) }}
+      </ion-badge>
+    </ion-item>
+  </ion-list>
+
+  <div class="empty-state" *ngIf="equipamentosFiltrados.length === 0">
+    <ion-icon name="construct-outline"></ion-icon>
+    <h3>Nenhum equipamento encontrado</h3>
+    <p>Tente ajustar o termo de busca</p>
+  </div>
+</ion-content>

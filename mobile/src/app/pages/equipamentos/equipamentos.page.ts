@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import {
   IonContent, IonHeader, IonTitle, IonToolbar, IonList, IonItem,
-  IonLabel, IonBadge, IonButton, IonIcon, IonSearchbar, IonButtons, IonBackButton
+  IonLabel, IonBadge, IonButton, IonIcon, IonSearchbar, IonBackButton, IonButtons
 } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
 import { arrowBackOutline } from 'ionicons/icons';
@@ -17,7 +17,7 @@ import { Equipamento } from '../../models/equipamento.model';
   standalone: true,
   imports: [
     IonContent, IonHeader, IonTitle, IonToolbar, IonList, IonItem,
-    IonLabel, IonBadge, IonButton, IonIcon, IonSearchbar, IonButtons, IonBackButton,
+    IonLabel, IonBadge, IonIcon, IonSearchbar, IonBackButton, IonButtons,
     CommonModule
   ]
 })

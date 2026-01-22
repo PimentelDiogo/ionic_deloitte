@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import {
-  IonContent, IonHeader, IonTitle, IonToolbar, IonCard, IonCardHeader,
   IonCardTitle, IonCardContent, IonButton, IonIcon, IonItem, IonLabel,
-  IonBadge, IonGrid, IonRow, IonCol
+  IonBadge, IonGrid, IonRow, IonCol, IonBackButton, IonButtons,
+  IonContent, IonHeader, IonTitle, IonToolbar, IonCard, IonCardHeader
 } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
 import { arrowBackOutline, checkmarkCircleOutline } from 'ionicons/icons';
@@ -19,7 +19,7 @@ import { OrdemServico, StatusOS } from '../../../models/ordem-servico.model';
   imports: [
     IonContent, IonHeader, IonTitle, IonToolbar, IonCard, IonCardHeader,
     IonCardTitle, IonCardContent, IonButton, IonIcon, IonItem, IonLabel,
-    IonBadge, IonGrid, IonRow, IonCol,
+    IonBadge, IonGrid, IonRow, IonCol, IonBackButton, IonButtons,
     CommonModule
   ]
 })
@@ -49,7 +49,7 @@ export class DetalhesPage implements OnInit {
       },
       error: (error) => {
         console.error('Erro ao carregar OS:', error);
-        this.voltar();
+        this.router.navigate(['/ordens-servico']);
       }
     });
   }
@@ -70,9 +70,7 @@ export class DetalhesPage implements OnInit {
     }
   }
 
-  voltar() {
-    this.router.navigate(['/ordens-servico']);
-  }
+
 
   getStatusColor(status: StatusOS): string {
     return status === StatusOS.Aberta ? 'warning' : 'success';

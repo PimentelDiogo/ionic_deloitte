@@ -4,7 +4,8 @@ import { Router } from '@angular/router';
 import {
   IonContent, IonHeader, IonTitle, IonToolbar, IonList, IonItem,
   IonLabel, IonBadge, IonButton, IonIcon, IonSearchbar, IonSegment,
-  IonSegmentButton, IonRefresher, IonRefresherContent, IonFab, IonFabButton
+  IonSegmentButton, IonRefresher, IonRefresherContent, IonFab, IonFabButton,
+  IonBackButton, IonButtons
 } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
 import { addOutline, arrowBackOutline } from 'ionicons/icons';
@@ -18,8 +19,9 @@ import { OrdemServico, StatusOS } from '../../../models/ordem-servico.model';
   standalone: true,
   imports: [
     IonContent, IonHeader, IonTitle, IonToolbar, IonList, IonItem,
-    IonLabel, IonBadge, IonButton, IonIcon, IonSearchbar, IonSegment,
+    IonLabel, IonBadge, IonIcon, IonSearchbar, IonSegment,
     IonSegmentButton, IonRefresher, IonRefresherContent, IonFab, IonFabButton,
+    IonBackButton, IonButtons,
     CommonModule
   ]
 })
@@ -37,6 +39,10 @@ export class ListaPage implements OnInit {
   }
 
   ngOnInit() {
+    // Carregamento inicial
+  }
+
+  ionViewWillEnter() {
     this.loadOrdensServico();
   }
 
@@ -90,10 +96,6 @@ export class ListaPage implements OnInit {
 
   verDetalhes(id: number) {
     this.router.navigate(['/ordens-servico', id]);
-  }
-
-  voltar() {
-    this.router.navigate(['/dashboard']);
   }
 
   criarNovaOS() {

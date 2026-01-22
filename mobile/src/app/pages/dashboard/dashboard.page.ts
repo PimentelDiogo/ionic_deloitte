@@ -36,6 +36,10 @@ export class DashboardPage implements OnInit {
   }
 
   ngOnInit() {
+    // Carregamento inicial
+  }
+
+  ionViewWillEnter() {
     this.loadResumo();
   }
 

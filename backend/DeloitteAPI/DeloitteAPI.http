@@ -1,0 +1,6 @@
+@DeloitteAPI_HostAddress = http://localhost:5086
+
+GET {{DeloitteAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -25,6 +25,10 @@ export const routes: Routes = [
         loadComponent: () => import('./pages/ordem-servico/lista/lista.page').then(m => m.ListaPage)
       },
       {
+        path: 'criar',
+        loadComponent: () => import('./pages/ordem-servico/criar/criar.page').then(m => m.CriarPage)
+      },
+      {
         path: ':id',
         loadComponent: () => import('./pages/ordem-servico/detalhes/detalhes.page').then(m => m.DetalhesPage)
       }
@@ -37,18 +41,18 @@ export const routes: Routes = [
   },
   {
     path: 'dashboard',
-    loadComponent: () => import('./pages/dashboard/dashboard.page').then( m => m.DashboardPage)
+    loadComponent: () => import('./pages/dashboard/dashboard.page').then(m => m.DashboardPage)
   },
   {
     path: 'lista',
-    loadComponent: () => import('./pages/ordem-servico/lista/lista.page').then( m => m.ListaPage)
+    loadComponent: () => import('./pages/ordem-servico/lista/lista.page').then(m => m.ListaPage)
   },
   {
     path: 'detalhes',
-    loadComponent: () => import('./pages/ordem-servico/detalhes/detalhes.page').then( m => m.DetalhesPage)
+    loadComponent: () => import('./pages/ordem-servico/detalhes/detalhes.page').then(m => m.DetalhesPage)
   },
   {
     path: 'equipamentos',
-    loadComponent: () => import('./pages/equipamentos/equipamentos.page').then( m => m.EquipamentosPage)
+    loadComponent: () => import('./pages/equipamentos/equipamentos.page').then(m => m.EquipamentosPage)
   }
 ];

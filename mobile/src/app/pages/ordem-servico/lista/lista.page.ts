@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import {
   IonContent, IonHeader, IonTitle, IonToolbar, IonList, IonItem,
   IonLabel, IonBadge, IonButton, IonIcon, IonSearchbar, IonSegment,
-  IonSegmentButton, IonRefresher, IonRefresherContent
+  IonSegmentButton, IonRefresher, IonRefresherContent, IonFab, IonFabButton
 } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
 import { addOutline, arrowBackOutline } from 'ionicons/icons';
@@ -19,7 +19,7 @@ import { OrdemServico, StatusOS } from '../../../models/ordem-servico.model';
   imports: [
     IonContent, IonHeader, IonTitle, IonToolbar, IonList, IonItem,
     IonLabel, IonBadge, IonButton, IonIcon, IonSearchbar, IonSegment,
-    IonSegmentButton, IonRefresher, IonRefresherContent,
+    IonSegmentButton, IonRefresher, IonRefresherContent, IonFab, IonFabButton,
     CommonModule
   ]
 })
@@ -94,6 +94,10 @@ export class ListaPage implements OnInit {
 
   voltar() {
     this.router.navigate(['/dashboard']);
+  }
+
+  criarNovaOS() {
+    this.router.navigate(['/ordens-servico/criar']);
   }
 
   getStatusColor(status: StatusOS): string {

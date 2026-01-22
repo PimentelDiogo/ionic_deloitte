@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar color="primary">
-    <ion-button slot="start" fill="clear" (click)="voltar()">
+    <ion-button slot="start" fill="clear" color="dark" (click)="voltar()">
       <ion-icon name="arrow-back-outline"></ion-icon>
     </ion-button>
     <ion-title>Ordens de Serviço</ion-title>
@@ -50,4 +50,10 @@
     <h3>Nenhuma ordem de serviço encontrada</h3>
     <p>Tente ajustar os filtros ou criar uma nova OS</p>
   </div>
+
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button (click)="criarNovaOS()">
+      <ion-icon name="add-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

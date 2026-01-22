@@ -1,0 +1,61 @@
+<ion-header [translucent]="true">
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-button color="dark" (click)="cancelar()">
+                <ion-icon name="arrow-back-outline"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>Nova Ordem de Serviço</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-card>
+        <ion-card-header>
+            <ion-card-title>Informações da OS</ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content>
+            <form [formGroup]="ordemServicoForm">
+                <!-- Seleção de Equipamento -->
+                <ion-item>
+                    <ion-label position="stacked">Equipamento *</ion-label>
+                    <ion-select formControlName="equipamentoId" placeholder="Selecione um equipamento"
+                        interface="action-sheet">
+                        <ion-select-option *ngFor="let equipamento of equipamentos" [value]="equipamento.id">
+                            {{ equipamento.nome }}
+                        </ion-select-option>
+                    </ion-select>
+                </ion-item>
+                <div class="error-message" *ngIf="equipamentoId?.invalid && equipamentoId?.touched">
+                    <p>Selecione um equipamento</p>
+                </div>
+
+                <!-- Descrição -->
+                <ion-item>
+                    <ion-label position="stacked">Descrição do Problema *</ion-label>
+                    <ion-textarea formControlName="descricao"
+                        placeholder="Descreva o problema ou serviço necessário (mínimo 10 caracteres)" rows="6"
+                        [counter]="true" maxlength="500"></ion-textarea>
+                </ion-item>
+                <div class="error-message" *ngIf="descricao?.invalid && descricao?.touched">
+                    <p *ngIf="descricao?.errors?.['required']">A descrição é obrigatória</p>
+                    <p *ngIf="descricao?.errors?.['minlength']">
+                        A descrição deve ter no mínimo 10 caracteres
+                    </p>
+                </div>
+
+                <!-- Botões -->
+                <div class="button-container">
+                    <ion-button expand="block" color="medium" (click)="cancelar()" [disabled]="isLoading">
+                        Cancelar
+                    </ion-button>
+                    <ion-button expand="block" color="primary" (click)="salvar()" [disabled]="isLoading">
+                        <ion-icon slot="start" name="save-outline"></ion-icon>
+                        {{ isLoading ? 'Salvando...' : 'Salvar OS' }}
+                    </ion-button>
+                </div>
+            </form>
+        </ion-card-content>
+    </ion-card>
+</ion-content>

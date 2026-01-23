@@ -5,8 +5,7 @@ using DeloitteAPI.Models;
 
 namespace DeloitteAPI.Services;
 
-public class EquipamentoService : IEquipamentoService
-{
+public class EquipamentoService : IEquipamentoService{
     private readonly AppDbContext _context;
 
     public EquipamentoService(AppDbContext context)

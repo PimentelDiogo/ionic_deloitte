@@ -17,7 +17,6 @@ public class AppDbContext : DbContext
     {
         base.OnModelCreating(modelBuilder);
 
-        // Configurar relacionamento Equipamento -> OrdemServico
         modelBuilder.Entity<OrdemServico>()
             .HasOne(os => os.Equipamento)
             .WithMany(e => e.OrdensServico)

@@ -8,8 +8,6 @@ public static class SeedData
     {
         // Garantir que o banco foi criado
         context.Database.EnsureCreated();
-
-        // Verificar se já existe usuário admin
         if (!context.Usuarios.Any())
         {
             context.Usuarios.Add(new Usuario
@@ -20,8 +18,6 @@ public static class SeedData
             });
             context.SaveChanges();
         }
-
-        // Verificar se já existem equipamentos
         if (!context.Equipamentos.Any())
         {
             var equipamentos = new List<Equipamento>

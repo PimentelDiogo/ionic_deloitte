@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DeloitteAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1d0889d78e3682fd91f592963796edae2f759a2f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d54dc8ca4b67cd7e371f09a72f7294d86a4e076c")]
 [assembly: System.Reflection.AssemblyProductAttribute("DeloitteAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DeloitteAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
